@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Electricity Bill Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selection">
+            <label for="language">Select Language:</label>
+            <select id="language" onchange="changeLanguage()">
+                <option value="english">English</option>
+                <option value="marathi">Marathi</option>
+            </select>  
+            </div> 
+            
+        <img src="logo.png" alt="Mahavitran image" class="centered-image">
+
+        <audio id="clickSound" src="clicksond.mp3" controls="false" style="visibility: hidden;"></audio>
+
+        <h1>Electricity Bill Calculator</h1>
+
+        <label for="totalunits">Total Units</label>
+        <input type="number" id="totalunits" name="totalunits" required placeholder="एकूण युनिट्स"><br>
+
+        <label for="unitrate1">Unit Rate 1</label>
+        <input type="number" id="unitrate1" name="unitrate1" required placeholder="Enter Unit Rate for (0-100)"><br>
+       
+        <label for="unitrate2">Unit Rate 2</label>
+        <input type="number" id="unitrate2" name="unitrate2" placeholder="Enter Unit Rate for (101-300)"><br>
+
+        <label for="unitrate3">Unit Rate 3</label>
+        <input type="number" id="unitrate3" name="unitrate3" placeholder="Enter Unit Rate for (301-500)"><br>
+
+        <label for="unitrate4">Unit Rate 4</label>
+        <input type="number" id="unitrate4" name="unitrate4" placeholder="Enter Unit Rate for (501-1000)"><br>
+
+        <label for="unitrate5">Unit Rate 5</label>
+        <input type="number" id="unitrate5" name="unitrate5" placeholder="Enter Unit Rate for (>1000)"><br>
+        
+        <label for="fixedcharges">Fixed Charges</label>
+        <input type="number" id="fixedcharges" name="fixedcharges" required placeholder="स्थिर आकार"><br>
+        
+        <label for="distributioncharge">Distribution Charge</label>
+        <input type="number" id="distributioncharge" name="distributioncharge" required placeholder="वहन आकार"><br>
+        
+        <label for="fuel1">Fuel 1</label>
+        <input type="number" id="fuel1" name="fuel1" placeholder="Enter Unit Rate for (0-100)"><br>
+        
+        <label for="fuel2">Fuel 2</label>
+        <input type="number" id="fuel2" name="fuel2" placeholder="Enter Unit Rate for (101-300)"><br>
+
+        <label for="fuel3">Fuel 3</label>
+        <input type="number" id="fuel3" name="fuel3" placeholder="Enter Unit Rate for (301-500)"><br>
+
+        <label for="fuel4">Fuel 4</label>
+        <input type="number" id="fuel4" name="fuel4" placeholder="Enter Unit Rate for (501-1000)"><br>
+
+        <label for="fuel5">Fuel 5</label>
+        <input type="number" id="fuel5" name="fuel5" placeholder="Enter Unit Rate for (>1000)"><br>
+
+        <label for="electricitycharge">Electricity Charge</label>
+        <input type="number" id="electricitycharge" name="electricitycharge" required placeholder="वीज शुल्क"><br>
+
+        <label for="dutycharge">Duty Charge</label>
+        <input type="number" id="dutycharge" name="dutycharge" placeholder="वीज विक्रि कर"><br>
+
+        <label for="interest">Interest</label>
+        <input type="number" id="interest" name="interest" placeholder="व्याज"><br>
+
+        <label for="discount">Discount</label>
+        <input type="number" id="discount" name="discount" placeholder="एकूण थकबाकी/जमा"><br>
+
+        
+        <button class="actionbutton" onclick="calculateBillAndPlaySound();" id="calculatebutton">Calculate</button>
+        <span style="margin: 0 14px;"></span>
+        <button class="actionbutton" onclick="resetFormAndPlaySound();" id="resetbutton">Reset</button>
+    
+        <p id="result1"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+        <p id="result4"></p>
+        <p id="result5"></p>
+        <p id="result6"></p>
+        <p id="result7"></p>
+        <p id="result8"></p>
+        <p id="result9"></p>
+
+    </div>
+    <div id="errorPopup" class="popup hidden">
+        <p>Please fill in all required fields.</p>
+    </div>
+    
+
+        <div class="developer-info">
+
+            <img src="electric-pole.png" alt="Developer's Avatar">
+            
+            <h2>About Electricity Calculator</h2>
+            <p style="font-size: 13px; display: inline-block;">Welcome to the Electricity Calculator, your trusted companion for managing and understanding your electricity bills from the Maharashtra State Electricity Distribution Company (MSEDCL). We've created this powerful tool to simplify the often complex world of electricity billing, making it easier for you to keep track of your expenses and plan your budget effectively.</p>
+            
+            <h2>How To Use</h2>
+            <p style="font-size: 15px; ">Download Guide-Book From Here</p> 
+            <div class="how-image">
+                <a href="https://www.mediafire.com/file/5zy9ia46ujpruxz/CALCULATION+GUIDE.pdf/file"><img src="guide-book.png" alt="download"></a>   
+            </div>
+
+            <h2>How It Works</h2>
+            <p style="font-size: 13px; display: inline-block;">Using our Electricity Calculator is a breeze. Simply enter the required details, such as your total consumption units, unit rates, fixed charges, and any additional charges like fuel, electricity tax, and more. Our calculator will process this information and provide you with a detailed breakdown of your electricity costs, including the final amount you need to pay</p>
+            
+            <h2>Disclaimer</h2>
+            <p style="font-size: 13px; display:inline-block; ">Please note that this calculator is not owned by MSEDCL
+                It has been developed by an independent developer with
+                the aim of helping people calculate their electricity bills
+                quickly and accurately.</p>
+
+                <h2>Contact Us</h2>
+                <p style="font-size: 13px; font-weight: bold; color: rgb(237, 7, 7); margin-top:5px; margin-bottom: 5px;">PLEASE SHARE YOUR FEEDBACK</p>
+                <p style="font-size: 13px; ">Business : electricitycalculator.click@gmail.com</p> 
+                <p style="font-size: 13px; ">Developer : salunkeparasorg@gmail.com</p> 
+
+                <div class="contact-icons">
+                
+                    <a href="https://www.instagram.com/salunkeparasofficial"><img src="instagram.png" alt="Instagram"></a>   
+            
+                <P style="font-size: 12px; opacity: 0.4; margin-top: 5px;">Copyright © 2023 electricitycalculator.click</P>
+        </div>
+    </div>
+   
+
+    <script src="script.js"></script>
+</body>
+</html>
